@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://solutax1.44yb746487.workers.dev
