@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutax.id | Solusi Pajak & Akuntansi Profesional</title>
+    <meta name="description" content="Solutax.id adalah mitra terpercaya Anda untuk jasa pelaporan pajak, pembukuan, dan konsultan akuntansi keuangan perusahaan dan perorangan.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            800: '#075985',
+                            900: '#0f172a',
+                            gold: '#f59e0b',
+                            goldHover: '#d97706',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'float-delayed': 'float 3s ease-in-out 1.5s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='#1e293b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        /* Scroll Reveal Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #075985; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0f172a; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 bg-brand-gold rounded-lg flex items-center justify-center mr-2 transform group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-chart-pie text-brand-900"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-white tracking-tight" id="logo-text">
+                        Solutax<span class="text-brand-gold">.id</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#beranda" class="text-gray-300 hover:text-brand-gold transition-colors font-medium text-sm nav-link">Beranda</a>
+                    <a href="#tentang" class="text-gray-300 hover:text-brand-gold transition-colors font-medium text-sm nav-link">Tentang Kami</a>
+                    <a href="#layanan" class="text-gray-300 hover:text-brand-gold transition-colors font-medium text-sm nav-link">Layanan</a>
+                    <a href="#testimoni" class="text-gray-300 hover:text-brand-gold transition-colors font-medium text-sm nav-link">Testimoni</a>
+                    <a href="#faq" class="text-gray-300 hover:text-brand-gold transition-colors font-medium text-sm nav-link">FAQ</a>
+                    <a href="#kontak" class="bg-brand-gold hover:bg-brand-goldHover text-brand-900 px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-[0_0_15px_rgba(245,158,11,0.4)] hover:shadow-[0_0_25px_rgba(245,158,11,0.6)] transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>Konsultasi Gratis</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-md hover:bg-white/10 transition-colors">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900/95 backdrop-blur-md shadow-xl absolute w-full border-t border-white/10">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#beranda" class="block px-3 py-3 text-base font-medium text-white hover:bg-brand-800 rounded-lg transition-colors">Beranda</a>
+                <a href="#tentang" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-brand-800 rounded-lg transition-colors">Tentang Kami</a>
+                <a href="#layanan" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-brand-800 rounded-lg transition-colors">Layanan</a>
+                <a href="#faq" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-brand-800 rounded-lg transition-colors">FAQ</a>
+                <a href="#kontak" class="block w-full text-center mt-6 bg-brand-gold text-brand-900 px-5 py-3.5 rounded-lg font-bold shadow-lg">Konsultasi Gratis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-pattern overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-900 to-brand-900/80"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text -->
+                <div class="text-center lg:text-left">
+                    <div class="fade-up inline-flex items-center px-4 py-2 rounded-full bg-brand-800/50 border border-brand-500/30 text-brand-100 text-sm font-medium mb-6 backdrop-blur-sm shadow-inner">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-ping mr-2"></span>
+                        <span class="w-2 h-2 bg-green-400 rounded-full absolute mr-2"></span>
+                        <span class="ml-4">Konsultan Pajak & Akuntansi Terpercaya</span>
+                    </div>
+                    <h1 class="fade-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+                        Fokus pada Bisnis Anda,<br/> Kami Urus <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300">Pajaknya</span>
+                    </h1>
+                    <p class="fade-up delay-200 text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Solutax.id menyediakan layanan pelaporan pajak, pembukuan, dan perancangan keuangan profesional untuk memastikan bisnis Anda patuh, aman, dan terus berkembang.
+                    </p>
+                    <div class="fade-up delay-300 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#layanan" class="bg-brand-gold hover:bg-brand-goldHover text-brand-900 px-8 py-3.5 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl text-center flex items-center justify-center gap-2 group">
+                            Lihat Layanan 
+                            <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#kontak" class="border-2 border-gray-400 hover:border-white text-white px-8 py-3.5 rounded-lg font-medium text-lg transition-all text-center hover:bg-white/10 backdrop-blur-sm flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-green-400"></i> Hubungi Tim
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Interactive Graphic -->
+                <div class="hidden lg:block relative fade-up delay-200">
+                    <div class="absolute inset-0 bg-brand-gold rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+                    
+                    <!-- Main Card -->
+                    <div class="relative glass-card rounded-2xl p-8 border border-white/10 shadow-2xl z-10 animate-float">
+                        <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium uppercase tracking-wider">Status Kepatuhan DJP</p>
+                                <p class="text-xl font-bold text-green-600 flex items-center gap-2">
+                                    <i class="fas fa-shield-check"></i> Aman & Valid
+                                </p>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-full shadow-inner">
+                                <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-3 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-default">
+                                <div class="bg-blue-50 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-file-invoice-dollar text-brand-500 text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-bold text-gray-800 text-sm">SPT Masa PPN</p>
+                                    <p class="text-xs text-gray-500">Dilaporkan 15 Mei </p>
+                                </div>
+                                <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-md font-bold"><i class="fas fa-check mr-1"></i>Selesai</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-default">
+                                <div class="bg-purple-50 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-chart-line text-purple-500 text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-bold text-gray-800 text-sm">Laporan Laba Rugi</p>
+                                    <p class="text-xs text-gray-500">Periode April </p>
+                                </div>
+                                <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-md font-bold"><i class="fas fa-check mr-1"></i>Selesai</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -right-6 -bottom-6 glass-card p-4 rounded-xl shadow-xl border border-white/20 z-20 animate-float-delayed flex items-center gap-3">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">Efisiensi Pajak</p>
+                            <p class="text-lg font-bold text-gray-900">+24.5%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="bg-white border-b border-gray-200 shadow-sm relative z-20 -mt-10 mx-4 sm:mx-6 lg:mx-auto max-w-5xl rounded-xl fade-up">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+            <div class="p-6 text-center hover:bg-gray-50 transition-colors rounded-l-xl">
+                <p class="text-3xl font-extrabold text-brand-900">500+</p>
+                <p class="text-sm text-gray-500 mt-1 font-medium">Klien Terbantu</p>
+            </div>
+            <div class="p-6 text-center hover:bg-gray-50 transition-colors">
+                <p class="text-3xl font-extrabold text-brand-900">10+</p>
+                <p class="text-sm text-gray-500 mt-1 font-medium">Tahun Pengalaman</p>
+            </div>
+            <div class="p-6 text-center hover:bg-gray-50 transition-colors">
+                <p class="text-3xl font-extrabold text-brand-900">100%</p>
+                <p class="text-sm text-gray-500 mt-1 font-medium">Kerahasiaan Data</p>
+            </div>
+            <div class="p-6 text-center hover:bg-gray-50 transition-colors rounded-r-xl">
+                <p class="text-3xl font-extrabold text-brand-900">24/7</p>
+                <p class="text-sm text-gray-500 mt-1 font-medium">Dukungan Responsif</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Logos (Trusted By) -->
+    <section class="py-12 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-6 fade-up">Dipercaya Oleh Perusahaan Berkembang</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale fade-up delay-100">
+                <!-- Using text/icons to simulate logos nicely -->
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fas fa-cube text-2xl"></i> TechNesia</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fas fa-leaf text-2xl"></i> AgroMakmur</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fas fa-building text-2xl"></i> CiptaKarya PT</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fas fa-store text-2xl"></i> Retailindo</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700 hidden md:flex"><i class="fas fa-truck text-2xl"></i> LogistikPro</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative fade-up">
+                    <div class="absolute inset-0 bg-brand-100 rounded-2xl transform -rotate-3 scale-105 -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tim Akuntan Bekerja" class="rounded-2xl shadow-xl object-cover h-[450px] w-full">
+                    
+                    <div class="absolute -bottom-8 -right-8 bg-brand-900 text-white p-6 rounded-2xl shadow-2xl hidden md:block border border-gray-700 hover:-translate-y-2 transition-transform duration-300 cursor-default">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-gold p-3 rounded-full text-brand-900">
+                                <i class="fas fa-award text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg">Tersertifikasi Resmi</p>
+                                <p class="text-sm text-gray-300">Brevet A, B, C & CPA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 fade-up delay-100">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-1 bg-brand-500 rounded-full"></span>
+                        <h2 class="text-brand-500 font-bold tracking-wide uppercase text-sm">Tentang Solutax.id</h2>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">Mitra Strategis untuk Pertumbuhan Bisnis Anda</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed text-lg">
+                        Peraturan perpajakan yang dinamis seringkali membebani pemilik usaha. Solutax.id hadir untuk mengambil alih kerumitan tersebut.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Kami adalah firma konsultan pajak dan akuntansi yang berdedikasi tinggi. Kami tidak sekadar menyusun laporan, namun memberikan analisis strategis (Tax Planning) untuk efisiensi pajak secara legal demi menunjang kesehatan finansial Anda.
+                    </p>
+                    
+                    <div class="space-y-5">
+                        <div class="flex items-start group bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50 transition-colors">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-colors shadow-sm">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-gray-900 font-bold">Akurat & Tepat Waktu</h4>
+                                <p class="text-gray-600 text-sm mt-1">Kami menjamin pelaporan bebas denda keterlambatan.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start group bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50 transition-colors">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors shadow-sm">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-gray-900 font-bold">Keamanan Data Terjamin</h4>
+                                <p class="text-gray-600 text-sm mt-1">Protokol NDA dan kerahasiaan tingkat tinggi untuk data finansial.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+                <h2 class="text-brand-500 font-bold tracking-wide uppercase text-sm mb-2">Layanan Kami</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Solusi Finansial Satu Pintu</h3>
+                <p class="text-gray-600 text-lg">Pilih layanan sesuai kebutuhan Anda. Kami menangani dari administrasi harian hingga sengketa pajak tingkat lanjut.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group fade-up">
+                    <div class="w-16 h-16 bg-brand-50 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-500 transition-colors">Pelaporan Pajak</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Penyusunan SPT Masa (PPN, PPh 21, 22, 23/26, dll) dan SPT Tahunan Badan maupun Orang Pribadi secara tertib dan presisi.</p>
+                    <a href="#kontak" class="text-brand-500 font-bold hover:text-brand-800 inline-flex items-center gap-2 group/link">
+                        Konsultasi <i class="fas fa-arrow-right transform group-hover/link:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group fade-up delay-100">
+                    <div class="w-16 h-16 bg-brand-50 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-500 transition-colors">Jasa Pembukuan</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Penyusunan laporan keuangan (Neraca, Laba/Rugi, Arus Kas) bulanan/tahunan berstandar SAK untuk kemudahan analisa bisnis.</p>
+                    <a href="#kontak" class="text-brand-500 font-bold hover:text-brand-800 inline-flex items-center gap-2 group/link">
+                        Konsultasi <i class="fas fa-arrow-right transform group-hover/link:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group fade-up delay-200">
+                    <div class="w-16 h-16 bg-brand-50 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-500 transition-colors">Tax Planning</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Perencanaan strategis legal untuk mengefisienkan beban pajak bisnis Anda, memaksimalkan profitabilitas perusahaan.</p>
+                    <a href="#kontak" class="text-brand-500 font-bold hover:text-brand-800 inline-flex items-center gap-2 group/link">
+                        Konsultasi <i class="fas fa-arrow-right transform group-hover/link:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group fade-up">
+                    <div class="w-16 h-16 bg-brand-50 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-500 transition-colors">Review Pajak</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Simulasi pemeriksaan (audit) internal untuk mengidentifikasi dan memperbaiki celah kepatuhan sebelum audit DJP sesungguhnya.</p>
+                    <a href="#kontak" class="text-brand-500 font-bold hover:text-brand-800 inline-flex items-center gap-2 group/link">
+                        Konsultasi <i class="fas fa-arrow-right transform group-hover/link:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group fade-up delay-100">
+                    <div class="w-16 h-16 bg-brand-50 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-500 transition-colors">Sengketa Pajak</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Pendampingan profesional dalam proses pemeriksaan, pengajuan keberatan, hingga proses banding di Pengadilan Pajak.</p>
+                    <a href="#kontak" class="text-brand-500 font-bold hover:text-brand-800 inline-flex items-center gap-2 group/link">
+                        Konsultasi <i class="fas fa-arrow-right transform group-hover/link:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 Highlighted -->
+                <div class="bg-gradient-to-br from-brand-900 to-brand-800 rounded-2xl p-8 border border-brand-700 shadow-2xl text-white flex flex-col justify-center relative overflow-hidden fade-up delay-200">
+                    <div class="absolute -right-6 -top-6 text-brand-700/30 text-9xl">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <i class="fas fa-laptop-code text-brand-gold text-4xl mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-3">Setup Sistem Cloud</h4>
+                        <p class="text-brand-100 mb-8 leading-relaxed">Membantu migrasi dan setup software akuntansi online (Jurnal, Accurate, Xero) lengkap dengan SOP untuk perusahaan modern.</p>
+                        <a href="#kontak" class="bg-brand-gold hover:bg-brand-goldHover text-brand-900 px-6 py-3 rounded-lg font-bold text-sm transition-colors inline-block text-center w-full shadow-lg">Diskusikan Kebutuhan IT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Flow / How it Works -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900">4 Langkah Mudah Bersama Kami</h3>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">Proses transparan tanpa ribet, biarkan ahli kami yang bekerja untuk Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative fade-up delay-100">
+                <!-- Connecting Line (Desktop only) -->
+                <div class="hidden md:block absolute top-10 left-12 right-12 h-1 bg-gradient-to-r from-brand-100 via-brand-300 to-brand-500 -z-10 rounded-full"></div>
+                
+                <!-- Steps -->
+                <div class="text-center relative group">
+                    <div class="w-20 h-20 bg-white border-4 border-gray-200 group-hover:border-brand-500 group-hover:scale-110 transition-all duration-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-400 group-hover:text-brand-500 mx-auto mb-6 z-10 relative shadow-sm">1</div>
+                    <h4 class="font-bold text-gray-900 text-xl mb-3">Konsultasi Awal</h4>
+                    <p class="text-gray-600">Ceritakan masalah atau kebutuhan bisnis Anda melalui WhatsApp/Meeting.</p>
+                </div>
+                
+                <div class="text-center relative group">
+                    <div class="w-20 h-20 bg-white border-4 border-gray-200 group-hover:border-brand-500 group-hover:scale-110 transition-all duration-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-400 group-hover:text-brand-500 mx-auto mb-6 z-10 relative shadow-sm">2</div>
+                    <h4 class="font-bold text-gray-900 text-xl mb-3">Kirim Dokumen</h4>
+                    <p class="text-gray-600">Serahkan data mentah (digital/fisik). Dijamin dengan NDA rahasia.</p>
+                </div>
+                
+                <div class="text-center relative group">
+                    <div class="w-20 h-20 bg-white border-4 border-gray-200 group-hover:border-brand-500 group-hover:scale-110 transition-all duration-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-400 group-hover:text-brand-500 mx-auto mb-6 z-10 relative shadow-sm">3</div>
+                    <h4 class="font-bold text-gray-900 text-xl mb-3">Proses & Analisa</h4>
+                    <p class="text-gray-600">Tim memproses laporan dengan cepat dan sesuai regulasi DJP terbaru.</p>
+                </div>
+                
+                <div class="text-center relative group">
+                    <div class="w-20 h-20 bg-brand-500 border-4 border-white ring-4 ring-brand-100 group-hover:scale-110 transition-all duration-300 rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 z-10 relative shadow-lg">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-xl mb-3">Selesai & Lapor</h4>
+                    <p class="text-gray-600">Laporan diserahkan kepada Anda dan bukti lapor DJP diterbitkan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="py-24 bg-brand-900 text-white relative overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-800 rounded-full blur-[100px] opacity-50"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-brand-gold rounded-full blur-[100px] opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-brand-gold font-bold tracking-wide uppercase text-sm mb-2">Kata Mereka</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Apa Kata Klien Kami?</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/20 transition-colors fade-up">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-200 italic mb-6 leading-relaxed">"Sangat terbantu! Dulu saya sering kena denda karena telat lapor PPN. Sejak pakai jasa Solutax, semuanya beres, saya bisa fokus jualan tanpa pusing urus administrasi."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=random" alt="Avatar">
+                        </div>
+                        <div>
+                            <p class="font-bold">Budi Santoso</p>
+                            <p class="text-xs text-gray-400">Direktur PT Maju Jaya Retail</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/20 transition-colors fade-up delay-100">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-200 italic mb-6 leading-relaxed">"Timnya sangat profesional. Tax planning yang diberikan menghemat puluhan juta rupiah pajak perusahaan kami secara legal. Penjelasannya juga mudah dimengerti."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Anita+Wijaya&background=random" alt="Avatar">
+                        </div>
+                        <div>
+                            <p class="font-bold">Anita Wijaya</p>
+                            <p class="text-xs text-gray-400">Founder Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/20 transition-colors fade-up delay-200">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-200 italic mb-6 leading-relaxed">"Layanan pembukuannya sangat rapi. Kami dibantu migrasi ke sistem Jurnal, dan sekarang saya bisa pantau laba rugi real-time dari HP. Recommended!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Rizky+Pratama&background=random" alt="Avatar">
+                        </div>
+                        <div>
+                            <p class="font-bold">Rizky Pratama</p>
+                            <p class="text-xs text-gray-400">Owner F&B Franchise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Pertanyaan Seputar Layanan</h3>
+                <p class="text-gray-600 text-lg">Berikut jawaban untuk pertanyaan yang paling sering diajukan klien kami.</p>
+            </div>
+
+            <div class="space-y-4 fade-up delay-100">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900 text-lg">Berapa biaya jasa konsultan di Solutax.id?</span>
+                        <i class="fas fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 border-t border-gray-100 pt-3">
+                        <p>Biaya kami bervariasi bergantung pada skala bisnis (omzet), jumlah transaksi bulanan, dan tingkat kompleksitas perusahaan Anda. Kami menyediakan paket UMKM mulai dari harga yang sangat terjangkau. Silakan hubungi kami untuk mendapatkan penawaran (quotation) gratis.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900 text-lg">Apakah kerahasiaan data perusahaan saya aman?</span>
+                        <i class="fas fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 border-t border-gray-100 pt-3">
+                        <p>Sangat aman. Kami menerapkan protokol standar operasional (SOP) yang ketat. Sebelum mulai bekerja, kami akan menandatangani Perjanjian Kerahasiaan (Non-Disclosure Agreement / NDA) secara legal dengan klien.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900 text-lg">Apakah Solutax melayani klien di luar area Jakarta?</span>
+                        <i class="fas fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 border-t border-gray-100 pt-3">
+                        <p>Ya! Dengan sistem akuntansi berbasis cloud dan komunikasi digital yang lancar, kami melayani klien dari seluruh wilayah di Indonesia tanpa hambatan.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900 text-lg">Bisakah saya hanya menggunakan jasa pelaporan SPT Tahunan saja?</span>
+                        <i class="fas fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 border-t border-gray-100 pt-3">
+                        <p>Tentu bisa. Kami menyediakan layanan sekali jalan (one-time service) seperti pembuatan SPT Tahunan, maupun retainer (bulanan) untuk pembukuan dan lapor PPN rutin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="kontak" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-900 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.3)] fade-up">
+                <div class="grid grid-cols-1 lg:grid-cols-5">
+                    <!-- Contact Info (Left - 2 Cols) -->
+                    <div class="p-10 lg:p-14 text-white relative lg:col-span-2 bg-gradient-to-br from-brand-900 to-brand-800">
+                        <div class="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+                            <i class="fas fa-envelope-open-text text-9xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold mb-4 relative z-10">Ambil Langkah Pertama!</h3>
+                        <p class="text-gray-300 mb-10 relative z-10 leading-relaxed">Hubungi konsultan kami sekarang untuk mendapatkan analisa awal secara gratis. Mari rapikan keuangan dan amankan legalitas bisnis Anda.</p>
+                        
+                        <div class="space-y-8 relative z-10">
+                            <div class="flex items-start">
+                                <div class="bg-white/10 p-4 rounded-xl mr-5 text-brand-gold backdrop-blur-sm">
+                                    <i class="fas fa-map-marker-alt text-xl w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Alamat Kantor</h5>
+                                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">Jakarta Selatan,Indonesia 12450</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-white/10 p-4 rounded-xl mr-5 text-brand-gold backdrop-blur-sm">
+                                    <i class="fas fa-phone-alt text-xl w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">WhatsApp / Telepon</h5>
+                                    <p class="text-gray-300 text-sm mt-2 font-medium">+62 877-1690-6909</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-white/10 p-4 rounded-xl mr-5 text-brand-gold backdrop-blur-sm">
+                                    <i class="fas fa-envelope text-xl w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Email Official</h5>
+                                    <p class="text-gray-300 text-sm mt-2 font-medium">halo@solutax.id</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form (Right - 3 Cols) -->
+                    <div class="bg-white p-10 lg:p-14 lg:col-span-3">
+                        <h4 class="text-2xl font-extrabold text-gray-900 mb-2">Kirim Pesan Langsung</h4>
+                        <p class="text-gray-500 mb-8">Tim ahli kami akan merespon dalam waktu maksimal 1x24 jam.</p>
+                        
+                        <form id="contactForm" onsubmit="event.preventDefault(); showMessage();">
+                            <div class="space-y-5">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Nama Lengkap *</label>
+                                        <input type="text" id="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all focus:bg-white" placeholder="Cth: Budi Santoso">
+                                    </div>
+                                    <div>
+                                        <label for="company" class="block text-sm font-bold text-gray-700 mb-2">Nama Perusahaan</label>
+                                        <input type="text" id="company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all focus:bg-white" placeholder="PT Maju Bersama">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email Aktif *</label>
+                                        <input type="email" id="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all focus:bg-white" placeholder="budi@email.com">
+                                    </div>
+                                    <div>
+                                        <label for="phone" class="block text-sm font-bold text-gray-700 mb-2">No. WhatsApp *</label>
+                                        <input type="tel" id="phone" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all focus:bg-white" placeholder="0812xxxxxx">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-sm font-bold text-gray-700 mb-2">Kebutuhan Utama</label>
+                                    <select id="service" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all focus:bg-white cursor-pointer">
+                                        <option value="">-- Pilih Layanan --</option>
+                                        <option value="pajak">Pelaporan Pajak (SPT)</option>
+                                        <option value="pembukuan">Jasa Akuntansi / Pembukuan</option>
+                                        <option value="konsultasi">Tax Planning / Konsultasi</option>
+                                        <option value="sistem">Setup Sistem Keuangan</option>
+                                        <option value="lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Pesan / Detail Pertanyaan *</label>
+                                    <textarea id="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all focus:bg-white resize-none" placeholder="Ceritakan singkat kondisi bisnis dan apa yang ingin Anda rapikan..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex justify-center items-center group">
+                                    Kirim Pesan Sekarang 
+                                    <i class="fas fa-paper-plane ml-3 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                                
+                                <!-- Success Message Box -->
+                                <div id="successMsg" class="hidden mt-4 p-4 bg-green-50 text-green-800 border border-green-200 rounded-lg text-center text-sm font-bold flex items-center justify-center gap-2 animate-pulse">
+                                    <i class="fas fa-check-circle text-green-500 text-lg"></i>
+                                    Terima kasih! Pesan Anda telah kami terima. Tim kami akan segera menghubungi.
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 fade-up">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-brand-gold rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-brand-900"></i>
+                        </div>
+                        <span class="text-2xl font-bold tracking-tight">
+                            Solutax<span class="text-brand-gold">.id</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Mitra andalan untuk kepatuhan perpajakan dan akurasi laporan keuangan bisnis Anda di Indonesia. Aman, Legal, Terpercaya.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-brand-900 transition-colors shadow-lg">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-brand-900 transition-colors shadow-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gray-700 pb-2 inline-block">Menu Navigasi</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#beranda" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs"></i> Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs"></i> Tentang Kami</a></li>
+                        <li><a href="#layanan" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs"></i> Layanan Kami</a></li>
+                        <li><a href="#faq" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs"></i> Tanya Jawab (FAQ)</a></li>
+                        <li><a href="#kontak" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs"></i> Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gray-700 pb-2 inline-block">Layanan Utama</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#layanan" class="hover:text-brand-gold transition-colors">Pajak Badan Usaha (PT/CV)</a></li>
+                        <li><a href="#layanan" class="hover:text-brand-gold transition-colors">Pajak Orang Pribadi</a></li>
+                        <li><a href="#layanan" class="hover:text-brand-gold transition-colors">Jasa Pembukuan Bulanan</a></li>
+                        <li><a href="#layanan" class="hover:text-brand-gold transition-colors">Tax Planning & Audit</a></li>
+                        <li><a href="#layanan" class="hover:text-brand-gold transition-colors">Setup Akuntansi Cloud</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gray-700 pb-2 inline-block">Berita & Insight Pajak</h4>
+                    <p class="text-sm text-gray-400 mb-4">Jangan sampai telat info regulasi DJP terbaru. Berlangganan gratis ke email Anda.</p>
+                    <form class="flex" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Masukkan Email..." required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-lg text-white focus:outline-none focus:border-brand-500 text-sm">
+                        <button type="submit" class="bg-brand-500 hover:bg-brand-600 px-4 py-3 rounded-r-lg transition-colors text-white font-bold">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center fade-up delay-100">
+                <p class="text-sm text-gray-500 mb-4 md:mb-0">
+                    &copy; <span id="year"></span> Solutax.id. Hak Cipta Dilindungi Undang-Undang.
+                </p>
+                <div class="flex space-x-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Syarat & Ketentuan</a>
+                    <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6287716906909" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#1ebd57] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all hover:scale-110 hover:-translate-y-2 z-50 group">
+        <i class="fab fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-white text-gray-800 text-sm font-bold py-1.5 px-3 rounded-lg shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Chat Admin
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const logoText = document.getElementById('logo-text');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Scrolled state
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-0');
+                navbar.classList.remove('py-2');
+                
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-brand-900');
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-gray-600', 'hover:text-brand-500');
+                    link.classList.remove('hover:text-brand-gold');
+                });
+                
+                mobileMenuBtn.classList.remove('text-gray-300');
+                mobileMenuBtn.classList.add('text-gray-800');
+            } else {
+                // Transparent Top state
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-0');
+                navbar.classList.add('py-2');
+                
+                logoText.classList.add('text-white');
+                logoText.classList.remove('text-brand-900');
+                
+                navLinks.forEach(link => {
+                    link.classList.add('text-gray-300', 'hover:text-brand-gold');
+                    link.classList.remove('text-gray-600', 'hover:text-brand-500');
+                });
+                
+                mobileMenuBtn.classList.add('text-gray-300');
+                mobileMenuBtn.classList.remove('text-gray-800');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')){
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // FAQ Toggle Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.fa-chevron-down');
+            
+            // Close all other open FAQs (Optional: remove this if you want multiple open at once)
+            document.querySelectorAll('.faq-content').forEach(el => {
+                if(el !== content && !el.classList.contains('hidden')) {
+                    el.classList.add('hidden');
+                    el.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate-180', 'text-brand-gold');
+                }
+            });
+
+            // Toggle current FAQ
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+            icon.classList.toggle('text-brand-gold');
+        }
+
+        // Scroll Reveal Animation via Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // trigger when 15% visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach((elem) => {
+            observer.observe(elem);
+        });
+
+        // Form submission simulation
+        function showMessage() {
+            const btn = document.querySelector('#contactForm button[type="submit"]');
+            const msg = document.getElementById('successMsg');
+            
+            // Change button state
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+            btn.disabled = true;
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            // Simulate API Call delay
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                document.getElementById('contactForm').reset();
+                
+                // Show success message
+                msg.classList.remove('hidden');
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    msg.classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
